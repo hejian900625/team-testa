@@ -16,7 +16,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "gen:api": "openapi-typescript ../contracts/openapi.yaml -o src/types/api.ts",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "e2e": "playwright test",
+    "e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "pinia": "^3.0.4",
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.64.0",
     "@types/node": "^22.10.0",
     "@typescript-eslint/parser": "^8.71.2",
     "@vitejs/plugin-vue": "^6.0.10",
@@ -41,5 +44,3 @@
     "vue-tsc": "^3.3.13"
   }
 }
-
-
