@@ -1,0 +1,10 @@
+# pnpm 项目级设置（frontend）。
+# 说明：本 MVP 依赖版本由 package.json + pnpm-lock.yaml 锁定并经 code review，
+# 这里关闭 pnpm 12 默认的 minimumReleaseAge 供应链接入策略，
+# 否则刚发布（默认 1 天内）的 Vue 3.5.x 会触发 ERR_PNPM_MINIMUM_RELEASE_AGE_VIOLATION。
+minimumReleaseAge: 0
+# pnpm 12 逐个授予构建脚本权限。esbuild 的 postinstall 未被授予时 install 会以
+# ERR_PNPM_IGNORED_BUILDS 非零退出（CI 视为失败），因此这里显式放行单个包，
+# 而不是用 dangerouslyAllowAllBuilds 放行所有依赖。
+allowBuilds:
+  esbuild: true
