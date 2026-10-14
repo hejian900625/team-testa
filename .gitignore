@@ -1,2 +1,5 @@
 .agent_context/
 message.md
+target/
+*.class
+
