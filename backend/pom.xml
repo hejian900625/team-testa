@@ -125,5 +125,19 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <!--
+        让 `mvn -pl controller -am spring-boot:run` 这类命令在聚合/库模块上自动跳过 run，
+        只在 controller 上真正启动。否则 CLI 目标会作用于 reactor 内每个模块，
+        在父 POM 上报 "Unable to find a suitable main class"。
+      -->
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>

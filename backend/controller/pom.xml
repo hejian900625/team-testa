@@ -70,6 +70,10 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <!-- 覆盖父 POM 的 skip=true：只有 controller 是应用模块，需要真正 run/repackage -->
+        <configuration>
+          <skip>false</skip>
+        </configuration>
         <executions>
           <execution>
             <goals>
